@@ -1,4 +1,5 @@
 package com.pollen.helpdesk.service;
+import com.pollen.helpdesk.dto.UserResponse;
 import com.pollen.helpdesk.entity.User;
 import java.util.List;
 
@@ -10,13 +11,20 @@ import java.util.List;
 *deleteUser()
 */
 
+
+
+import com.pollen.helpdesk.dto.UserResponse;
+import com.pollen.helpdesk.entity.User;
+
+import java.util.List;
+
 public interface UserService {
 
-    User createUser(User user);
+    UserResponse createUser(User user);
 
-    List<User> getAllUsers();
+    List<UserResponse> getAllUsers();
 
-    User getUserById(Long id);
+    UserResponse getUserById(Long id);
 
     void deleteUser(Long id);
 }

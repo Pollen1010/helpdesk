@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity //How data is stored
 @Table(name = "users")
 public class User {
 
