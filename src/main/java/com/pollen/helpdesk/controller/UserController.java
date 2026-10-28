@@ -1,10 +1,11 @@
 
 package com.pollen.helpdesk.controller;
-
+import com.pollen.helpdesk.dto.CreateUserRequest;
 import com.pollen.helpdesk.dto.UserResponse;
 import com.pollen.helpdesk.entity.User;
 import com.pollen.helpdesk.service.UserService;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -19,8 +20,19 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponse createUser(@RequestBody User user) {
+    public UserResponse createUser(
+            @Valid @RequestBody CreateUserRequest request) {
+
+        User user = new User();
+
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        user.setEmail(request.getEmail());
+        user.setUsername(request.getUsername());
+        user.setPassword(request.getPassword());
+
         return userService.createUser(user);
+
     }
 
     @GetMapping
